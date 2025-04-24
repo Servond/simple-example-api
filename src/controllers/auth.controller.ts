@@ -44,9 +44,10 @@ async function GetAllController(
   try {
     const data = await LoginService(req.body);
 
-    res.status(200).cookie("access_token", data.token).send({
+    res.status(200).send({
       message: "Login Success",
       user: data.user,
+      token: data.token
     });
   } catch (err) {
     next(err);
