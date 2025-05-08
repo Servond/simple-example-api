@@ -1,4 +1,4 @@
-import express, { Application } from "express";
+import express, { Application, Request, Response } from "express";
 import cors from "cors"
 import helmet from "helmet";
 
@@ -15,6 +15,9 @@ app.use(cors({
     origin: FE_URL
 }));
 app.use(express.json());
+app.use("/api", (req: Request, res: Response) => {
+  res.status(200).send("This is API")
+})
 app.use("/api/auth", authRouter)
 
 app.listen(port, () => {
