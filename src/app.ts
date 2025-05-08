@@ -15,7 +15,7 @@ app.use(cors({
     origin: FE_URL
 }));
 app.use(express.json());
-app.use("/api", (req: Request, res: Response) => {
+app.get("/api", (req: Request, res: Response) => {
   res.status(200).send("This is API")
 })
 app.use("/api/auth", authRouter)
