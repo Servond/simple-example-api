@@ -15,9 +15,6 @@ app.use((0, cors_1.default)({
     origin: config_1.FE_URL
 }));
 app.use(express_1.default.json());
-app.get("/api", (req, res) => {
-    res.status(200).send("This is API");
-});
 app.use("/api/auth", auth_router_1.default);
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
